@@ -1,0 +1,102 @@
+@import "../../static/less/variables.less";
+@import "../../static/less/vender.less";
+
+.modal-container {
+	position: relative;
+	display: inline-block;
+	cursor: initial;
+	.modal-text-link {
+		font-size: @fs-14;
+		cursor: pointer;
+		vertical-align: middle;
+	}
+	i {
+		cursor: pointer;
+	}
+	.modal-mask {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top:0;
+		z-index: 98;
+		background-color: rgba(0,0,0,.6);
+		opacity: 1;
+		visibility: hidden;
+		.transition(all .1s ease);
+	}
+	.modal {
+		position: fixed;
+		left: 50%;
+		top: -50px;
+		margin-left: -373px;
+		width:745px;
+		padding: 55px 50px;
+		border: 1px solid #e2ebe8;
+		border-radius: 2px;
+		.transition(all .3s ease-out);
+		visibility: hidden;
+		opacity: 0;
+		z-index: 99;
+		background-color: @white;
+		> .icon-close {
+			position: absolute;
+			right: 24px;
+			top: 24px;
+			display: inline-block;
+			cursor: pointer;
+			opacity: 0.6;
+			font-size: @fs-18;
+			color: @fc-3;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.modal-header {
+			position: relative;
+			font-size: @fs-18;
+			line-height: 48px;
+			height: 48px;
+			color: @fc-3;
+		}
+		.modal-body {
+			position: relative;
+			font-size: @fs-14;
+			color: @fc-5;
+		}
+		.modal-footer {
+			position: relative;
+			height: 46px;
+			font-size: 0;
+			margin-top: 60px;
+			.modal-OK,.modal-cancel {
+				display: inline-block;
+				padding: 0 25px;
+				height: 46px;
+				line-height: 46px;
+				text-align: center;
+				cursor: pointer;
+				font-size: @fs-16;
+			}
+			.modal-OK {
+				background-color: @green;
+				color: @white;
+				border-radius: 2px;
+			}
+			.modal-cancel {
+				padding: 0 25px;
+				color: @fc-3;
+			}
+		}
+	}
+	&.open {
+		.modal {
+			opacity: 1;
+			visibility: visible;
+			top: 30px;
+		}
+		.modal-mask {
+			visibility: visible;
+		}
+	}
+}

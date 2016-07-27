@@ -1,0 +1,102 @@
+@import "../../static/less/variables.less";
+@import "../../static/less/vender.less";
+.confirm-container {
+	position: relative;
+	display: inline-block;
+	.confirm-text-link {
+		font-size: @fs-14;
+		cursor: pointer;
+	}
+	i {
+		cursor: pointer;
+	}
+	.confirm-mask {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top:0;
+		z-index: 98;
+	}
+	.confirm {
+		position: fixed;
+		left: 50%;
+		top: 250px;
+		margin-left: -167px;
+		width:335px;
+		min-height:65px;
+		border: 1px solid #e2ebe8;
+		border-radius: 2px;
+		.transition(all .3s ease-out);
+		visibility: hidden;
+		opacity: 0;
+		z-index: 100;
+		background-color: @white;
+		.icon-close {
+			position: absolute;
+			right: 9px;
+			top: 9px;
+			display: inline-block;
+			font-size: 10px;
+			cursor: pointer;
+			opacity: 0.6;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.confirm-header {
+			margin-top: 15px;
+			font-size: @fs-16;
+			line-height: 1;
+			height: 16px;
+			color: @fc-3;
+			text-align: center;
+			margin-bottom: -15px;
+		}
+		.confirm-body {
+			padding: 25px 15px;
+			font-size: @fs-14;
+			color: @fc-5;
+			line-height: 30px;
+		}
+		.confirm-footer {
+			position: relative;
+			width: 100%;
+			height: 60px;
+			font-size: 0;
+			background-color: #F9F8F8;
+			.confirm-OK,.confirm-cancel {
+				display: inline-block;
+				text-align: center;
+				cursor: pointer;
+				color: @fc-5;
+				font-size: 14px;
+				height: 36px;
+				line-height: 36px;
+				margin-top: 12px;
+			}
+			.confirm-OK {
+				background-color: @green;
+				color: @white;
+				margin-left: 100px;
+				border-radius: 20px;
+				padding: 0 17px;
+				.transition(.05s linear);
+				&.disabled {
+					background-color: @gray;
+					pointer-events: none;
+				}
+			}
+			.confirm-cancel {
+				margin-left: 22px;
+			}
+		}
+	}
+	&.open {
+		.confirm {
+			opacity: 1;
+			visibility: visible;
+			top: 200px;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+@import "../../static/less/variables.less";
+@import "../../static/less/vender.less";
+.radio-group {
+	position: relative;
+	font-size: @fs-14;
+	margin-bottom: 18px;
+	.radio-label {
+		display: block;
+		margin-bottom: 13px;
+		font-size: @fs-14;
+		line-height: 1;
+	}
+	&.block {
+		.radio {
+			display: block;
+		}
+	}
+	.radio {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: @fs-14;
+		margin-right: 30px;
+		color: @fc-3;
+		padding-left: 6px;
+		input {
+			opacity: 0;
+			& + i {
+				position: absolute;
+				display: inline-block;
+				left: 0;
+				top: 2px;
+				color: @fc-9;
+				vertical-align: middle;
+			}
+			&:checked + i {
+				color: @green;
+			}
+			&:disabled + i {
+				color: @fc-c;
+			}
+		}
+	}
+}
